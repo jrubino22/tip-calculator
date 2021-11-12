@@ -1,6 +1,4 @@
-const input = document.getElementById("bill").value;
-let tip = 0;
-let total = 0;
+//need to round to nearest cent
 const buttons = document.querySelectorAll(".buttons");
 const good = document.getElementById("good");
 const great = document.getElementById("great");
@@ -8,25 +6,35 @@ const excellent = document.getElementById("excellent");
 const tipSpan = document.getElementById("tipAmt");
 const totalSpan = document.getElementById("total")
 
+
 buttons.forEach(function (btn) {
     btn.addEventListener("click", function (c) {
       const classes = c.currentTarget.classList;
+      const billAmt = document.querySelector("input").value;
+      let tip = 0;
+      let total = 0;
       if(classes.contains("good")) {
-          tip === (input * .15);
-          total === (input * 1.15);
+          tip = (billAmt * .15);
+          total = (billAmt * 1.15);
+          
       }
         else if(classes.contains("great")) { 
-            tip === (input * .2);
-            total === (input * 1.2);
+            tip = (billAmt * .2);
+            total = (billAmt * 1.2);
+            console.log(total)
         }
         else if(classes.contains("excellent")){
-            tip === input * .25;
-            total === (input * 1.25);
-            console.log(input)
+            tip = billAmt * .25;
+            total = (billAmt * 1.25);
+
+           
         }
         else {
             console.log("How did you do this")
         }
+
+        tipSpan.textContent = ("$" + tip)
+        totalSpan.textContent =  ("$" + total)
     })       
     
 })
