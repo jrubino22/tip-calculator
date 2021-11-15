@@ -32,9 +32,10 @@ buttons.forEach(function (btn) {
         else {
             console.log("How did you do this")
         }
-
-        tipSpan.textContent = ("$" + tip)
-        totalSpan.textContent =  ("$" + total)
+        roundedTip = Math.round(100*tip)/100
+        roundedTotal = Math.round(100*total)/100
+        tipSpan.textContent = ("Tip $" + roundedTip)
+        totalSpan.textContent =  ("Total $" + roundedTotal)
     })       
     
 })
